@@ -1,0 +1,27 @@
+<div class="jumbotron">
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First Name:</strong>
+  <%= @user.firstName %>
+</p>
+
+<p>
+  <strong>Last Name:</strong>
+  <%= @user.lastName %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <h1>Your ID is: <span class="badge badge-primary"><%= @user.id%></span></h1>
+</p>
+
+<%= link_to 'Edit Information', edit_user_path(@user) %> <br/>
+<%= link_to 'Another Purchase', new_user_path, class: 'btn btn-warning' %> 
+
+</div>

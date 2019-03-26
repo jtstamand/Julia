@@ -1,0 +1,28 @@
+<div class="jumbotron">
+
+
+
+<p id="notice"><%= notice %></p>
+
+
+<strong>Item Number:</strong>
+<%= @item.description %>
+<br/>
+
+<%= form_for @item do |form| %>
+  <br/><strong>Winning User ID:</strong>
+  <%= form.text_field :int %>
+  <%= form.submit "Enter", class: 'btn btn-warning'%>
+<% end %>
+
+<br/>
+<%= link_to 'Edit Item', edit_item_path(@item) %><br />
+<%= link_to 'List All Items', items_path %><br />
+<%= link_to 'Add Another Item', new_item_path, class: 'btn btn-primary' %>
+
+</div>
+
+
+
+
+
