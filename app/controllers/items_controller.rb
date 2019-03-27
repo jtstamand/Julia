@@ -44,7 +44,7 @@ class ItemsController < ApplicationController
       if @item.update(item_params)
         format.html { redirect_to @item, notice: 'Item was successfully updated.' }
         format.json { render :show, status: :ok, location: @item }
-        @user=User.find(item_params[:integer])
+        @user=User.find(params[:integer])
         ExampleMailer.sample_email(@user, @item).deliver
       else
         format.html { render :edit }
