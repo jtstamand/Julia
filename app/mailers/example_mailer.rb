@@ -4,6 +4,6 @@ class ExampleMailer < ApplicationMailer
 	def sample_email(user, item)
 		@user=user
 		@item=item
-    	mail(to: @user.email, subject: 'Sample Email')
-  	end
+    	mail(to: @user.email, subject: 'You won!')
+
 end

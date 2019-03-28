@@ -1,25 +1,15 @@
 Rails.application.configure do
 
 
-config.action_mailer.delivery_method = :sendmail
-# Defaults to:
-# config.action_mailer.sendmail_settings = {
-#   location: '/usr/sbin/sendmail',
-#   arguments: '-i'
-# }
-config.action_mailer.perform_deliveries = true
-config.action_mailer.raise_delivery_errors = true
-config.action_mailer.default_options = {from: 'julia.t.stamand@gmail.com'}
-
-config.action_mailer.delivery_method = :smtp
-config.action_mailer.smtp_settings = {
-address:              'smtp.gmail.com',
-port:                 587,
-domain:               'example.com',
-user_name:            'Julia',
-password:             'julia0723',
-authentication:       'plain',
-enable_starttls_auto: true  }
+ActionMailer::Base.smtp_settings = {
+  :port           => ENV['MAILGUN_SMTP_PORT'],
+  :address        => ENV['MAILGUN_SMTP_SERVER'],
+  :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
+  :password       => ENV['MAILGUN_SMTP_PASSWORD'],
+  :domain         => 'https://stormy-sea-45971.herokuapp.com/',
+  :authentication => :plain,
+}
+ActionMailer::Base.delivery_method = :smtp
 
   # Settings specified here will take precedence over those in config/application.rb.
 
